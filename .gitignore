@@ -26,4 +26,3 @@ htmlcov/
 
 # Packaging test artifacts
 dist_test/
-dist/

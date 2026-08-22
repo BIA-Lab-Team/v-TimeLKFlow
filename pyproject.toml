@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mtvlk"
+name = "v-TimeLKFlow"
 version = "0.1.0"
-description = "Multivariate Time-Varying Liang-Kleeman Information Flow (Zhou et al. 2024)"
+description = "Time-varying Liang-Kleeman information flow methods, including the mtvlk (multivariate, Zhou et al. 2024) implementation"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]

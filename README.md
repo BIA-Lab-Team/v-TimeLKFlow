@@ -1,11 +1,56 @@
-# mtvlk
+# v-TimeLKFlow
 
-**Multivariate Time-Varying Liang–Kleeman Information Flow** — a Python
-implementation of Zhou et al. (2024)'s Kalman-filter-based method for
-estimating *time-varying, multivariate* causal information flow between
-time series.
+**Time-varying Liang–Kleeman information flow implementations** — a
+BIA Lab package. Its current main implementation (`mtvlk`) is Zhou et al.
+(2024)'s Kalman-filter-based method for estimating *time-varying,
+multivariate* causal information flow between time series.
 
 License: MIT
+
+## Contents
+
+- [Time-varying vs. static causality](#time-varying-vs-static-causality)
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Quick start](#quick-start)
+- [Package contents](#package-contents)
+- [API overview](#api-overview)
+- [Tutorials](#tutorials)
+- [On methodological reconstructions](#on-methodological-reconstructions)
+- [Testing](#testing)
+- [References](#references)
+- [Contributing / Issues](#contributing--issues)
+- [License](#license)
+- [Citation](#citation)
+
+## Time-varying vs. static causality
+
+Most causality analyses — classical Granger causality, and the original
+(static) Liang–Kleeman information flow itself — collapse an entire
+observation record into a **single number per variable pair**: "does `X`
+cause `Y`?" is answered once, from the whole time series, and that one
+verdict is assumed to hold for the entire record. That's a poor fit for
+systems where a causal relationship switches on, strengthens, weakens, or
+disappears partway through — a coupling that only exists during part of a
+climate regime, for example, can average out to "no detectable causality"
+under a whole-series estimate even though it was clearly present for a
+while. Instead of one static answer, this package tracks a **running,
+time-indexed estimate**: a Kalman filter updates the local covariance
+structure as each new observation arrives, so the causal-flow strength
+`T_{j→i}(t)` (and its significance) is itself a function of time `t`, not a
+single scalar — you get a curve showing when a link turned on or off, not
+just whether it exists anywhere in the record.
+
+**Input format**: every function in this package takes a single array `X`
+of shape `(T, n)` — `T` time points (rows) by `n` signals/variables
+(columns), i.e. `n` co-observed signals sampled at the same `T` time steps.
+Passing all `n` signals into one call makes every estimated flow
+*conditional on the other `n − 2` variables* automatically — unlike a purely
+bivariate/pairwise method, which can report a spurious link that's actually
+mediated entirely through an unmodeled third signal (see the worked
+bivariate-vs-conditional example in
+[`examples/fig2_fig3_replication.py`](examples/fig2_fig3_replication.py)).
 
 ## Overview
 
@@ -67,18 +112,22 @@ are documented explicitly rather than silently guessed at (see
 
 ## Installation
 
+The PyPI distribution is named `v-TimeLKFlow` (the lab's umbrella name for this
+family of time-varying LK flow implementations); the importable Python package
+remains `mtvlk` (the specific Zhou et al. 2024 algorithm this release implements).
+
 ```bash
-pip install mtvlk
+pip install v-TimeLKFlow
 ```
 
 Optional extras:
 
 ```bash
-pip install mtvlk[viz]        # + matplotlib, for mtvlk.viz plotting helpers
-pip install mtvlk[xarray]     # + xarray, for to_xarray() output
-pip install mtvlk[all]        # viz + xarray + numba
-pip install mtvlk[dev]        # + pytest, for running the test suite
-pip install mtvlk[notebooks]  # + jupyter, for the tutorial notebooks
+pip install v-TimeLKFlow[viz]        # + matplotlib, for mtvlk.viz plotting helpers
+pip install v-TimeLKFlow[xarray]     # + xarray, for to_xarray() output
+pip install v-TimeLKFlow[all]        # viz + xarray + numba
+pip install v-TimeLKFlow[dev]        # + pytest, for running the test suite
+pip install v-TimeLKFlow[notebooks]  # + jupyter, for the tutorial notebooks
 ```
 
 Core dependencies are just `numpy` and `scipy` — everything else is opt-in.
@@ -237,19 +286,21 @@ public GitHub URL).
 
 ## License
 
-[MIT](LICENSE) © 2026 Felix Y. Zhou
+[MIT](LICENSE) © 2026 BIA Lab
 
 ## Citation
 
-If you use this software, please cite both the software and the paper it
+There is no standalone paper for this software (yet) — please cite the GitHub
+repository for the software itself, and the paper for the algorithm it
 implements:
 
 ```bibtex
-@software{zhou_mtvlk,
-  author  = {Zhou, Felix Y.},
-  title   = {mtvlk: Multivariate Time-Varying Liang-Kleeman Information Flow},
-  year    = {2026},
-  license = {MIT}
+@misc{v_timelkflow,
+  author       = {Zhou, Felix Y.},
+  title        = {v-TimeLKFlow: Time-Varying Liang-Kleeman Information Flow Implementations},
+  year         = {2026},
+  howpublished = {\url{https://github.com/<your-username>/mtvlk}},
+  license      = {MIT}
 }
 
 @article{zhou2024mtvlk,

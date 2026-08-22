@@ -73,7 +73,7 @@ character than the paper's own linear ramps.
 ## Running the notebooks
 
 ```bash
-pip install "mtvlk[all,notebooks]"
+pip install "v-TimeLKFlow[all,notebooks]"
 jupyter notebook examples/notebooks/
 ```
 
