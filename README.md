@@ -280,9 +280,7 @@ pytest
 ## Contributing / Issues
 
 Bug reports, questions, and pull requests are welcome — please open an issue
-at the repository's issue tracker (see the `Issues` link in
-[`pyproject.toml`](pyproject.toml); update this once the project has a
-public GitHub URL).
+at the [repository's issue tracker](https://github.com/BIA-Lab-Team/v-TimeLKFlow/issues).
 
 ## License
 
@@ -299,7 +297,7 @@ implements:
   author       = {Zhou, Felix Y.},
   title        = {v-TimeLKFlow: Time-Varying Liang-Kleeman Information Flow Implementations},
   year         = {2026},
-  howpublished = {\url{https://github.com/<your-username>/mtvlk}},
+  howpublished = {\url{https://github.com/BIA-Lab-Team/v-TimeLKFlow}},
   license      = {MIT}
 }
 

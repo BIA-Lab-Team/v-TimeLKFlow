@@ -39,9 +39,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/<your-username>/mtvlk"
-Repository = "https://github.com/<your-username>/mtvlk"
-Issues = "https://github.com/<your-username>/mtvlk/issues"
+Homepage = "https://github.com/BIA-Lab-Team/v-TimeLKFlow"
+Repository = "https://github.com/BIA-Lab-Team/v-TimeLKFlow"
+Issues = "https://github.com/BIA-Lab-Team/v-TimeLKFlow/issues"
 
 [project.optional-dependencies]
 xarray = ["xarray>=2022.6"]
