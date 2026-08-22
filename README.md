@@ -1,11 +1,17 @@
 # v-TimeLKFlow
 
+[![PyPI version](https://badge.fury.io/py/v-TimeLKFlow.svg)](https://badge.fury.io/py/v-TimeLKFlow)
+[![Downloads](https://pepy.tech/badge/v-TimeLKFlow)](https://pepy.tech/project/v-TimeLKFlow)
+[![Downloads](https://pepy.tech/badge/v-TimeLKFlow/month)](https://pepy.tech/project/v-TimeLKFlow)
+[![Python version](https://img.shields.io/pypi/pyversions/v-TimeLKFlow)](https://pypistats.org/packages/v-TimeLKFlow)
+[![GitHub stars](https://img.shields.io/github/stars/BIA-Lab-Team/v-TimeLKFlow?style=social)](https://github.com/BIA-Lab-Team/v-TimeLKFlow/)
+[![GitHub forks](https://img.shields.io/github/forks/BIA-Lab-Team/v-TimeLKFlow?style=social)](https://github.com/BIA-Lab-Team/v-TimeLKFlow/)
+[![License: MIT](https://img.shields.io/github/license/BIA-Lab-Team/v-TimeLKFlow)](https://github.com/BIA-Lab-Team/v-TimeLKFlow/blob/main/LICENSE)
+
 **Time-varying Liang–Kleeman information flow implementations** — a
 BIA Lab package. Its current main implementation (`mtvlk`) is Zhou et al.
 (2024)'s Kalman-filter-based method for estimating *time-varying,
 multivariate* causal information flow between time series.
-
-License: MIT
 
 ## Contents
 
