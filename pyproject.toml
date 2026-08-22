@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtvlk"
+version = "0.1.0"
+description = "Multivariate Time-Varying Liang-Kleeman Information Flow (Zhou et al. 2024)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Felix Y. Zhou", email = "felix.y.zhou@vanderbilt.edu" },
+]
+requires-python = ">=3.9"
+keywords = [
+    "causality",
+    "information-flow",
+    "kalman-filter",
+    "time-series",
+    "climate-science",
+    "liang-kleeman",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+    "numpy>=1.23",
+    "scipy>=1.9",
+]
+
+[project.urls]
+Homepage = "https://github.com/<your-username>/mtvlk"
+Repository = "https://github.com/<your-username>/mtvlk"
+Issues = "https://github.com/<your-username>/mtvlk/issues"
+
+[project.optional-dependencies]
+xarray = ["xarray>=2022.6"]
+viz = ["matplotlib>=3.5"]
+numba = ["numba>=0.56"]
+notebooks = ["jupyter"]
+dev = [
+    "pytest>=7",
+    "pytest-cov",
+    "xarray>=2022.6",
+    "matplotlib>=3.5",
+]
+all = [
+    "xarray>=2022.6",
+    "matplotlib>=3.5",
+    "numba>=0.56",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mtvlk*"]
